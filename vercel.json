@@ -1,0 +1,29 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "app": {
+      "root": ".",
+      "framework": "fastapi"
+    },
+    "cosyvoice_subprocess": {
+      "root": "backend/engines/cosyvoice_subprocess",
+      "runtime": "python"
+    },
+    "electron": {
+      "root": "electron",
+      "framework": "vite"
+    },
+    "desktop-bridge": {
+      "root": "native/desktop-bridge",
+      "runtime": "rust"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "app"
+      }
+    }
+  ]
+}
